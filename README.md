@@ -2,15 +2,6 @@
 
 This is developed as one of Algoritma Academy Data Analytics Specialization using capstone Projects. The deliverables of this project is a python script to send an automated generated email using SMTP using Outlook email host. We will also utilize Google's `fire` package for easy interfacing with bash command. 
 
-## Rubric
-
-The maximum score you will obtain from this project is 16 points:  
-
-- Environment preparation (*2pts*)  
-- Understanding the contact list creation (*2pts*)  
-- Compose email: create templates, compose messages, extract summary (*6pts*)  
-- Export a plot using matplotlib (*6pts*)
-
 ## Setup
 
 ### Requirements
@@ -36,9 +27,6 @@ python -m ipykernel install --user --name=<env_name>
 ```
 cd <path_to_folder>
 ```
-
-Example:
-- `cd "C:\\Users\Desktop\Algoritma Academy\fire-capstone-master"`
 
 4. Install the requirements:
 
@@ -82,18 +70,7 @@ export EMAIL_PASSWORD=algorima123
 
 To check if your variables have stored correctly, run `echo $EMAIL_ADDRESS` and `echo $EMAIL_PASSWORD` in your Terminal. They should return your email address and password respectively 
 
-## The Challenge
-
-In this capstone project, you will try to complete 4 challenges:
-
-1. Extract data frame information to compose an email
-2. Export a plot using matplotlib to be attached to the email
-3. Testing application modularity using `fire`
-4. Login to your Outlook (recommended) or Gmail email using Python's SMTP library
-
-Finally, you will need to complete the final mission by sending us an auto generated email to a specified email.
-
-### Challenge 1 & 2: Extract Summary & Create Plot
+### 1 & 2: Extract Summary & Create Plot
 
 In this section you will need to extract all the variables listed in the second point from the templates object: `START_DATE`, `END_DATE`, `TOTAL_SPENT`, `TOTAL_CONVERSION`, and `CPC`. This process is completed under `extract_summary` function. The data we'll be using is stored under `data_input` folder named `data.csv`. It was downloaded from [Kaggle dataset repository](https://www.kaggle.com/madislemsalu/facebook-ad-campaign) provided by [Madis_Lemsalu](https://www.kaggle.com/madislemsalu). The data contains daily ads report run on Facebook, showing different marketing campaign from 18th to 30th of August 2017. Please refer to the following glossary of the variables:
 
@@ -115,7 +92,7 @@ For this step, you might want to use Jupyter Notebook to perform a more complex 
 
 Once you're done with the wrangling process, you will be able to complete both `extract_summary` and `create_plot` module on `send_email.py` and move forward to the next challenge.
 
-### Challenge 3: Application Modularity
+### 3: Application Modularity
 
 [Python Fire](https://github.com/google/python-fire) is a library for automatically generating command line interfaces (CLIs) from absolutely any Python object. We will use `fire` to helps us run our `send_email.py` on a modular basis to helps us debug the remaining skeleton.
 
@@ -177,7 +154,7 @@ It should return `NameError: name '___' is not defined`, since you have not comp
 - Fill up `START_DATE`,`END_DATE`,`TOTAL_SPENT`,`TOTAL_CONVERSION` on `compose_email` function
 - Change the `GITHUB_LINK` variable to your own repository!
 
-### Challenge 4: Setting up your email with Python SMTP
+### 4: Setting up your email with Python SMTP
 
 The SMTP setup is managed within `authenticate_account` function. The default email host used is an **Outlook server** (If you want to use Gmail as the sender address, please read the additional section below). 
 The `smtplib` library will manage SSL authetication for your email address. For security purposes, you will need to set up an environment variables on your local machine called `EMAIL_ADDRESS` and `EMAIL_PASSWORD` (See Setup: Environment Variable section). This is done to avoid having to hard code your email and password on the script and risking it to be accidentaly shared accross the internet.
@@ -226,7 +203,7 @@ def authenticate_account(EMAIL, PASSWORD, SERVER='gmail'):
 
 
 
-## Final Mission
+## 5. Final
 
 The `fire` package has been set up to fire `main` function when called. If the script has been set up properly, you should be able to call the function from CLI. The parameter passed into the function can be specify using the syntax: `--param=value`. You can pass in multiple parameters within one line execution, the available parameters are:
 
@@ -258,9 +235,3 @@ Body Template:
 >
 >Please find the complete script on my Github: ${GITHUB_LINK}
 >Best regards,
-
-
-We are looking forward for your email!
-
----
-Good luck and happy coding!
